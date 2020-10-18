@@ -26,10 +26,9 @@ export default {
   components: {
     EventCard
   },
-  data() {},
   created() {
-    this.$store.dispatch('fetchEvents', {
-      perPage: this.perPage,
+    this.$store.dispatch('event/fetchEvents', {
+      perPage: 3,
       page: this.page
     })
   },
@@ -41,7 +40,7 @@ export default {
   },
   methods: {
     hasNextPage() {
-      return this.event.total_count > this.page * this.perPage
+      return this.event.total_count > this.page * 3
     }
   }
 }
